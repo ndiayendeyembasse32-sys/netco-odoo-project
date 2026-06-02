@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Professionnel - Ndeye Mbasse Ndiaye</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        :root {
+            --primary: #8cb89f; /* Ton vert d'eau */
+            --dark: #1b3b65; /* Bleu marine pro */
+            --light: #f9f9f9;
+            --text: #333;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background: var(--light); color: var(--text); line-height: 1.6; }
+        
+        /* Header & Profil */
+        header { background: white; padding: 40px 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .profile-img { width: 140px; height: 140px; border-radius: 50%; border: 4px solid var(--primary); object-fit: cover; margin-bottom: 15px; }
+        h1 { color: var(--dark); font-size: 28px; margin-bottom: 5px; }
+        .subtitle { color: var(--primary); font-weight: bold; font-size: 18px; margin-bottom: 15px; }
+        
+        /* Liens rapides / CV */
+        .cv-btn { display: inline-block; background: var(--primary); color: white; padding: 10px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; margin-top: 10px; transition: 0.3s; }
+        .cv-btn:hover { background: var(--dark); }
+
+        /* Conteneur principal */
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        section { background: white; padding: 30px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+        h2 { color: var(--dark); margin-bottom: 20px; border-bottom: 2px solid var(--primary); padding-bottom: 5px; display: flex; align-items: center; gap: 10px; }
+        
+        /* Infos stage */
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 15px; }
+        .info-item { background: #f4f7f5; padding: 15px; border-radius: 10px; }
+        .info-item strong { color: var(--dark); display: block; }
+
+        /* Code Blocks */
+        .code-title { background: #2d3748; color: #fff; padding: 10px 15px; border-radius: 8px 8px 0 0; font-size: 14px; font-weight: bold; margin-top: 20px; }
+        pre { background: #1a202c; color: #cbd5e0; padding: 15px; border-radius: 0 0 8px 8px; overflow-x: auto; font-family: 'Consolas', monospace; font-size: 13px; margin-bottom: 20px; }
+        
+        /* Footer */
+        footer { text-align: center; padding: 30px; color: #888; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="ma-photo.jpeg" alt="Ndeye Mbasse Ndiaye" class="profile-img">
+        <h1>Ndeye Mbasse Ndiaye</h1>
+        <div class="subtitle">Étudiante SN1 — EPSI Paris</div>
+        <p>Architecte Systèmes, Réseaux & Développeuse Web Émergente</p>
+        <a href="#" class="cv-btn"><i class="fa fa-download"></i> Mon CV Professionnel</a>
+    </header>
+
+    <div class="container">
+        
+        <section>
+            <h2><i class="fa fa-user"></i> À propos de mon stage</h2>
+            <div class="info-grid">
+                <div class="info-item"><strong>Entreprise</strong>NET-CO SERVICES</div>
+                <div class="info-item"><strong>Période</strong>4 Mai - 30 Juin 2026</div>
+                <div class="info-item"><strong>Mission</strong>Transformation Digitale & ERP Odoo</div>
+            </div>
+            <p>Dans le cadre de mon Bachelor à l'EPSI, j'ai piloté l'intégration et la refonte graphique de l'écosystème web de NET-CO SERVICES, en concevant un site vitrine institutionnel interconnecté avec une boutique marchande e-commerce sous Odoo.</p>
+        </section>
+
+        <section>
+            <h2><i class="fa fa-code"></i> Réalisations & Codes Sources</h2>
+            <p>Voici les scripts de personnalisation avancés injectés dans l'écosystème Odoo pour modifier l'expérience utilisateur (UX) et l'identité visuelle de l'entreprise :</p>
+
+            <div class="code-title">1. Menu Latéral Flottant (HTML)</div>
+<pre>&lt;div id="ruban-flottant-netco"&gt;
+  &lt;a href="/contactus" class="ruban-btn ruban-theme-clair"&gt;...&lt;/a&gt;
+  &lt;a href="/devis" class="ruban-btn ruban-vert"&gt;...&lt;/a&gt;
+&lt;/div&gt;</pre>
+
+            <div class="code-title">2. Habillage Personnalisé du Formulaire de Devis (CSS)</div>
+<pre>section.s_website_form {
+    background-color: #8cb89f !important; /* Vert d'eau NET-CO */
+    padding: 40px !important;
+    border-radius: 15px !important;
+}</pre>
+        </section>
+        
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Ndeye Mbasse Ndiaye - Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
