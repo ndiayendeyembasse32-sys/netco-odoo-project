@@ -1,8 +1,7 @@
 # 🌟 Portfolio Technique — Stage Fin d'Année (EPSI Paris)
 
 <p align="center">
-  <!-- Remplacer ce lien par le lien de votre photo de profil importée sur GitHub -->
-  <img src="https://github.com/votre-identifiant/votre-depot/raw/main/votre-photo.jpg" alt="Ndeye Mbasse Ndiaye" width="150" style="border-radius: 50%; border: 3px solid #8cb89f;"/>
+  <img src="ma-photo.jpeg" alt="Ndeye Mbasse Ndiaye" width="150" style="border-radius: 50%; border: 3px solid #8cb89f;"/>
 </p>
 
 ## 🧑‍💻 À propos de moi
@@ -11,9 +10,9 @@ Je m'appelle **Ndeye Mbasse Ndiaye**, étudiante à l'**EPSI Paris**. Passionné
 ---
 
 ## 🏢 Présentation du Stage
-* **Entreprise d'accueil :** NET-CO SERVICES (Expertise en nettoyage de copropriétés et services de proximité)[cite: 2]
-* **Période :** 4 mai au 30 juin 2026[cite: 2]
-* **Objectif :** Mener à bien la transformation digitale de l'entreprise en concevant un écosystème web unifié (Site vitrine + Boutique e-commerce) entièrement centralisé sur l'ERP **Odoo**, complété par le développement de scripts de personnalisation front-end[cite: 2].
+* **Entreprise d'accueil :** NET-CO SERVICES (Expertise en nettoyage de copropriétés et services de proximité)
+* **Période :** 4 mai au 30 juin 2026
+* **Objectif :** Mener à bien la transformation digitale de l'entreprise en concevant un écosystème web unifié (Site vitrine + Boutique e-commerce) entièrement centralisé sur l'ERP **Odoo**, complété par le développement de scripts de personnalisation front-end.
 
 ---
 
@@ -248,3 +247,4 @@ display: none !important;
 .contact-box i { font-size: 20px; color: #4a5d52; margin-right: 15px; }
 .contact-info .label { display: block; font-size: 10px; font-weight: bold; color: #888; letter-spacing: 1px; }
 .contact-info a { color: #333; text-decoration: none; font-weight: bold; }
+
