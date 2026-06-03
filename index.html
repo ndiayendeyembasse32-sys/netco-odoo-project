@@ -1,93 +1,783 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Professionnel - Ndeye Mbasse Ndiaye</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        :root {
-            --primary: #8cb89f; /* Ton vert d'eau */
-            --dark: #1b3b65; /* Bleu marine pro */
-            --light: #f9f9f9;
-            --text: #333;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
-        body { background: var(--light); color: var(--text); line-height: 1.6; }
-        
-        /* Header & Profil */
-        header { background: white; padding: 40px 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .profile-img { width: 140px; height: 140px; border-radius: 50%; border: 4px solid var(--primary); object-fit: cover; margin-bottom: 15px; }
-        h1 { color: var(--dark); font-size: 28px; margin-bottom: 5px; }
-        .subtitle { color: var(--primary); font-weight: bold; font-size: 18px; margin-bottom: 15px; }
-        
-        /* Liens rapides / CV */
-        .cv-btn { display: inline-block; background: var(--primary); color: white; padding: 10px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; margin-top: 10px; transition: 0.3s; }
-        .cv-btn:hover { background: var(--dark); }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ndeye Mbasse Ndiaye — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* Conteneur principal */
-        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-        section { background: white; padding: 30px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
-        h2 { color: var(--dark); margin-bottom: 20px; border-bottom: 2px solid var(--primary); padding-bottom: 5px; display: flex; align-items: center; gap: 10px; }
-        
-        /* Infos stage */
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 15px; }
-        .info-item { background: #f4f7f5; padding: 15px; border-radius: 10px; }
-        .info-item strong { color: var(--dark); display: block; }
+  :root {
+    --green: #8cb89f;
+    --green-dark: #4a5d52;
+    --green-light: #e1f5ee;
+    --navy: #1b3b65;
+    --cream: #ffe7ce;
+    --slate: #5d737e;
+    --white: #ffffff;
+    --bg: #f8f7f4;
+    --text: #1a1a1a;
+    --text-muted: #6b6b6b;
+    --border: rgba(0,0,0,0.08);
+  }
 
-        /* Code Blocks */
-        .code-title { background: #2d3748; color: #fff; padding: 10px 15px; border-radius: 8px 8px 0 0; font-size: 14px; font-weight: bold; margin-top: 20px; }
-        pre { background: #1a202c; color: #cbd5e0; padding: 15px; border-radius: 0 0 8px 8px; overflow-x: auto; font-family: 'Consolas', monospace; font-size: 13px; margin-bottom: 20px; }
-        
-        /* Footer */
-        footer { text-align: center; padding: 30px; color: #888; font-size: 14px; }
-    </style>
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 3rem;
+    background: rgba(248,247,244,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    color: var(--green-dark);
+    letter-spacing: 0.02em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--green-dark); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 6rem 4rem 6rem 5rem;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--green-dark);
+    border: 1.5px solid var(--green);
+    padding: 6px 14px; border-radius: 100px;
+    margin-bottom: 2rem; width: fit-content;
+  }
+  .hero-tag::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--green); flex-shrink: 0;
+  }
+  .hero-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    line-height: 1.05;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+  }
+  .hero-name em { color: var(--green-dark); font-style: italic; }
+  .hero-desc {
+    font-size: 1.05rem; color: var(--text-muted);
+    max-width: 440px; line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--green-dark); color: var(--white);
+    padding: 0.85rem 2rem; border-radius: 100px;
+    font-size: 0.9rem; font-weight: 500;
+    text-decoration: none; transition: background 0.2s, transform 0.15s;
+    border: none; cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--navy); transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent; color: var(--green-dark);
+    padding: 0.85rem 2rem; border-radius: 100px;
+    font-size: 0.9rem; font-weight: 500;
+    text-decoration: none; border: 1.5px solid var(--green);
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { background: var(--green-light); }
+
+  .hero-right {
+    background: var(--green-light);
+    display: flex; align-items: center; justify-content: center;
+    padding: 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero-right::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 300px; height: 300px; border-radius: 50%;
+    border: 40px solid rgba(140,184,159,0.18);
+  }
+  .hero-right::after {
+    content: '';
+    position: absolute; bottom: -40px; left: -40px;
+    width: 200px; height: 200px; border-radius: 50%;
+    border: 30px solid rgba(27,59,101,0.08);
+  }
+  .photo-frame {
+    width: 320px; height: 380px;
+    border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+    overflow: hidden;
+    border: 4px solid var(--white);
+    box-shadow: 0 20px 60px rgba(74,93,82,0.2);
+    position: relative; z-index: 2;
+    background: var(--green);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+  .photo-placeholder {
+    font-family: 'DM Serif Display', serif;
+    font-size: 5rem; color: var(--white); opacity: 0.6;
+  }
+  .hero-stats {
+    position: absolute; bottom: 3rem; right: 3rem; z-index: 3;
+    display: flex; flex-direction: column; gap: 0.75rem;
+  }
+  .stat-pill {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem; font-weight: 500;
+    color: var(--green-dark);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .stat-pill span { font-weight: 700; color: var(--navy); }
+
+  /* ── SECTION BASE ── */
+  section { padding: 6rem 5rem; }
+  .section-label {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--green);
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 3rem;
+  }
+
+  /* ── STAGE ── */
+  #stage { background: var(--white); }
+  .stage-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  .info-card {
+    border: 1px solid var(--border);
+    border-radius: 16px; padding: 1.75rem;
+    background: var(--bg);
+  }
+  .info-card-label {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem;
+  }
+  .info-card-value { font-size: 1.05rem; font-weight: 500; color: var(--text); }
+  .stage-mission {
+    background: var(--navy); color: var(--white);
+    border-radius: 20px; padding: 2.5rem;
+    font-size: 1.1rem; line-height: 1.8; font-style: italic;
+    font-family: 'DM Serif Display', serif;
+  }
+  .stage-mission strong { color: var(--cream); font-style: normal; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 1rem; }
+
+  /* ── COMPÉTENCES ── */
+  #competences { background: var(--bg); }
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;
+  }
+  .skill-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .skill-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.07); }
+  .skill-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: var(--green-light); display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; margin-bottom: 1rem;
+  }
+  .skill-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.35rem; }
+  .skill-level { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem; }
+  .skill-bar { height: 4px; background: var(--green-light); border-radius: 4px; overflow: hidden; }
+  .skill-bar-fill { height: 100%; background: var(--green); border-radius: 4px; transition: width 1s ease; }
+
+  /* ── RÉALISATIONS ODOO ── */
+  #realisations { background: var(--white); }
+  .real-tabs {
+    display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap;
+  }
+  .tab-btn {
+    background: var(--bg); border: 1.5px solid var(--border);
+    color: var(--text-muted); font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem; font-weight: 600;
+    padding: 0.5rem 1.25rem; border-radius: 100px;
+    cursor: pointer; transition: all 0.2s; letter-spacing: 0.03em;
+  }
+  .tab-btn.active {
+    background: var(--green-dark); color: var(--white);
+    border-color: var(--green-dark);
+  }
+  .real-panel { display: none; }
+  .real-panel.active { display: block; }
+
+  .code-showcase {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+    align-items: start;
+  }
+  .code-block {
+    background: #1a1f2e; border-radius: 14px; overflow: hidden;
+    font-size: 0.78rem; line-height: 1.7;
+  }
+  .code-header {
+    background: rgba(255,255,255,0.05);
+    padding: 0.75rem 1.25rem;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .code-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .code-title { color: rgba(255,255,255,0.5); font-size: 0.75rem; margin-left: auto; }
+  .code-body { padding: 1.25rem; overflow-x: auto; }
+  .code-body code { color: #cdd6f4; white-space: pre; display: block; }
+  .kw { color: #cba6f7; }
+  .str { color: #a6e3a1; }
+  .prop { color: #89b4fa; }
+  .val { color: #fab387; }
+  .cm { color: #6c7086; font-style: italic; }
+
+  .real-desc {
+    padding: 0.5rem 0;
+  }
+  .real-desc h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem; color: var(--navy); margin-bottom: 1rem;
+  }
+  .real-desc p { color: var(--text-muted); line-height: 1.8; margin-bottom: 1.25rem; font-size: 0.95rem; }
+  .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+  .tech-tag {
+    background: var(--green-light); color: var(--green-dark);
+    font-size: 0.75rem; font-weight: 600; padding: 4px 12px;
+    border-radius: 100px; letter-spacing: 0.04em;
+  }
+  .preview-box {
+    border: 1.5px dashed var(--border); border-radius: 14px;
+    padding: 2rem; text-align: center; color: var(--text-muted);
+    background: var(--bg); font-size: 0.85rem;
+    margin-top: 1rem;
+  }
+
+  /* ── PREVIEW RUBAN ── */
+  .ruban-preview {
+    position: relative;
+    height: 200px;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8f0eb 100%);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 1rem 0;
+  }
+  .ruban-demo {
+    display: flex; flex-direction: column; gap: 8px;
+    padding-right: 0;
+  }
+  .ruban-demo-btn {
+    display: flex; align-items: center;
+    padding: 8px 16px 8px 12px; height: 38px;
+    font-size: 11px; font-weight: bold; white-space: nowrap;
+    cursor: pointer; color: white;
+    clip-path: polygon(12px 0%, 100% 0%, 100% 100%, 12px 100%, 0% 50%);
+    width: 180px;
+    transition: width 0.3s;
+  }
+  .ruban-demo-btn:hover { width: 200px; }
+  .rd-arrow { width: 0; height: 0; border-top: 6px solid transparent; border-bottom: 6px solid transparent; border-right: 9px solid white; margin-right: 10px; flex-shrink: 0; }
+  .rd-contact { background: #ffe7ce; color: #1b3b65; }
+  .rd-contact .rd-arrow { border-right-color: #1b3b65; }
+  .rd-devis { background: #8cb89f; }
+  .rd-jobs { background: #5d737e; }
+  .ruban-label {
+    position: absolute; top: 12px; left: 16px;
+    font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--text-muted);
+  }
+
+  /* ── FORMULAIRE PREVIEW ── */
+  .form-preview {
+    background: #8cb89f;
+    border-radius: 14px;
+    padding: 1.5rem;
+    display: grid; gap: 1rem;
+  }
+  .fp-label { color: white; font-weight: 700; font-size: 0.8rem; text-align: center; }
+  .fp-input {
+    background: white; border: none; border-radius: 30px;
+    padding: 8px 16px; width: 100%; font-size: 0.8rem;
+    color: #1b3b65; font-weight: 600;
+  }
+  .fp-btn {
+    background: white; color: #8cb89f;
+    border: none; border-radius: 30px;
+    padding: 10px 24px; font-weight: 900;
+    font-size: 0.75rem; text-transform: uppercase;
+    cursor: pointer; display: block; margin: 0 auto;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--navy); color: var(--white); }
+  #contact .section-label { color: var(--green); }
+  #contact .section-title { color: var(--white); }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;
+  }
+  .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-link {
+    display: flex; align-items: center; gap: 1.25rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px; padding: 1.25rem 1.5rem;
+    text-decoration: none; color: var(--white);
+    transition: background 0.2s, transform 0.15s;
+  }
+  .contact-link:hover { background: rgba(255,255,255,0.1); transform: translateX(4px); }
+  .contact-link-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: var(--green); display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; flex-shrink: 0;
+  }
+  .contact-link-label { font-size: 0.7rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+  .contact-link-value { font-weight: 500; font-size: 0.95rem; }
+  .contact-right {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px; padding: 2.5rem;
+  }
+  .contact-right p { color: rgba(255,255,255,0.7); line-height: 1.8; font-size: 1rem; margin-bottom: 2rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0e1e32; color: rgba(255,255,255,0.4);
+    text-align: center; padding: 2rem;
+    font-size: 0.8rem;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-left > * {
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.4s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 4rem 2rem 3rem; }
+    .hero-right { min-height: 320px; }
+    section { padding: 4rem 2rem; }
+    .stage-grid, .code-showcase, .contact-grid { grid-template-columns: 1fr; }
+    .real-tabs { overflow-x: auto; }
+  }
+</style>
 </head>
 <body>
 
-    <header>
-        <img src="ma-photo.jpeg" alt="Ndeye Mbasse Ndiaye" class="profile-img">
-        <h1>Ndeye Mbasse Ndiaye</h1>
-        <div class="subtitle">Étudiante SN1 — EPSI Paris</div>
-        <p>Architecte Systèmes, Réseaux & Développeuse Web Émergente</p>
-        <a href="#" class="cv-btn"><i class="fa fa-download"></i> Mon CV Professionnel</a>
-    </header>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Ndeye Mbasse Ndiaye</div>
+  <ul class="nav-links">
+    <li><a href="#stage">Stage</a></li>
+    <li><a href="#competences">Compétences</a></li>
+    <li><a href="#realisations">Réalisations</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-    <div class="container">
-        
-        <section>
-            <h2><i class="fa fa-user"></i> À propos de mon stage</h2>
-            <div class="info-grid">
-                <div class="info-item"><strong>Entreprise</strong>NET-CO SERVICES</div>
-                <div class="info-item"><strong>Période</strong>4 Mai - 30 Juin 2026</div>
-                <div class="info-item"><strong>Mission</strong>Transformation Digitale & ERP Odoo</div>
-            </div>
-            <p>Dans le cadre de mon Bachelor à l'EPSI, j'ai piloté l'intégration et la refonte graphique de l'écosystème web de NET-CO SERVICES, en concevant un site vitrine institutionnel interconnecté avec une boutique marchande e-commerce sous Odoo.</p>
-        </section>
-
-        <section>
-            <h2><i class="fa fa-code"></i> Réalisations & Codes Sources</h2>
-            <p>Voici les scripts de personnalisation avancés injectés dans l'écosystème Odoo pour modifier l'expérience utilisateur (UX) et l'identité visuelle de l'entreprise :</p>
-
-            <div class="code-title">1. Menu Latéral Flottant (HTML)</div>
-<pre>&lt;div id="ruban-flottant-netco"&gt;
-  &lt;a href="/contactus" class="ruban-btn ruban-theme-clair"&gt;...&lt;/a&gt;
-  &lt;a href="/devis" class="ruban-btn ruban-vert"&gt;...&lt;/a&gt;
-&lt;/div&gt;</pre>
-
-            <div class="code-title">2. Habillage Personnalisé du Formulaire de Devis (CSS)</div>
-<pre>section.s_website_form {
-    background-color: #8cb89f !important; /* Vert d'eau NET-CO */
-    padding: 40px !important;
-    border-radius: 15px !important;
-}</pre>
-        </section>
-        
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-left">
+    <div class="hero-tag">EPSI Paris · Stage 2026</div>
+    <h1 class="hero-name">Ndeye<br>Mbasse<br><em>Ndiaye</em></h1>
+    <p class="hero-desc">Développeuse web &amp; intégratrice ERP — je conçois des interfaces modernes et des expériences numériques cohérentes, de la maquette au déploiement Odoo.</p>
+    <div class="hero-ctas">
+      <a href="#realisations" class="btn-primary">Voir mes réalisations</a>
+      <a href="https://github.com/ndiayendeyembasse32-sys/netco-odoo-project" target="_blank" class="btn-outline">GitHub →</a>
     </div>
+  </div>
+  <div class="hero-right">
+    <div class="photo-frame">
+      <img src="ma-photo.jpeg" alt="Ndeye Mbasse Ndiaye" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="photo-placeholder" style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">NM</div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-pill">🎓 <span>EPSI</span> Paris</div>
+      <div class="stat-pill">🛠️ <span>Odoo</span> ERP</div>
+      <div class="stat-pill">📅 Mai – Juin <span>2026</span></div>
+    </div>
+  </div>
+</section>
 
-    <footer>
-        <p>&copy; 2026 Ndeye Mbasse Ndiaye - Tous droits réservés.</p>
-    </footer>
+<!-- STAGE -->
+<section id="stage">
+  <div class="section-label">Mon contexte</div>
+  <h2 class="section-title">Présentation du stage</h2>
+  <div class="stage-grid">
+    <div class="info-card">
+      <div class="info-card-label">Entreprise</div>
+      <div class="info-card-value">NET-CO SERVICES</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-label">Période</div>
+      <div class="info-card-value">4 mai → 30 juin 2026</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-label">Rôle</div>
+      <div class="info-card-value">Développeuse Web / Intégratrice ERP</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-label">Secteur</div>
+      <div class="info-card-value">Nettoyage de copropriétés & services de proximité</div>
+    </div>
+  </div>
+  <div class="stage-mission">
+    <strong>Mission principale</strong>
+    Mener la transformation digitale de NET-CO SERVICES en concevant un écosystème web unifié — site vitrine + boutique e-commerce — entièrement centralisé sur l'ERP Odoo, avec développement de scripts de personnalisation front-end injectés dans l'éditeur avancé.
+  </div>
+</section>
 
+<!-- COMPÉTENCES -->
+<section id="competences">
+  <div class="section-label">Ce que je maîtrise</div>
+  <h2 class="section-title">Compétences techniques</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">🌐</div>
+      <div class="skill-name">HTML5 / CSS3</div>
+      <div class="skill-level">Avancé</div>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">⚡</div>
+      <div class="skill-name">JavaScript</div>
+      <div class="skill-level">Intermédiaire+</div>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🟣</div>
+      <div class="skill-name">Odoo ERP</div>
+      <div class="skill-level">Intégration & personnalisation</div>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🎨</div>
+      <div class="skill-name">UI / UX Design</div>
+      <div class="skill-level">Intermédiaire</div>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width:70%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🔧</div>
+      <div class="skill-name">CSS clip-path & animation</div>
+      <div class="skill-level">Avancé</div>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🐙</div>
+      <div class="skill-name">Git / GitHub</div>
+      <div class="skill-level">Intermédiaire</div>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width:70%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📱</div>
+      <div class="skill-name">Responsive design</div>
+      <div class="skill-level">Avancé</div>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🛍️</div>
+      <div class="skill-name">E-commerce Odoo</div>
+      <div class="skill-level">Intégration complète</div>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width:78%"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- RÉALISATIONS ODOO -->
+<section id="realisations">
+  <div class="section-label">Codes injectés dans Odoo</div>
+  <h2 class="section-title">Réalisations techniques</h2>
+
+  <div class="real-tabs">
+    <button class="tab-btn active" onclick="showTab('ruban')">Ruban flottant</button>
+    <button class="tab-btn" onclick="showTab('formulaire')">Formulaire de devis</button>
+    <button class="tab-btn" onclick="showTab('contact')">Carte contact</button>
+  </div>
+
+  <!-- RUBAN -->
+  <div class="real-panel active" id="panel-ruban">
+    <div class="code-showcase">
+      <div>
+        <div class="real-desc">
+          <h3>Ruban flottant latéral dynamique</h3>
+          <p>Menu d'action rapide fixé sur le bord droit de l'écran, avec formes en <code>clip-path</code> polygone. Un listener JavaScript détecte le scroll : au-delà de 40px, le ruban passe en mode compact, et se redéploie au survol.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS clip-path</span>
+            <span class="tech-tag">JavaScript scroll</span>
+            <span class="tech-tag">position: fixed</span>
+          </div>
+        </div>
+        <div style="margin-top:1.5rem">
+          <div class="ruban-preview">
+            <span class="ruban-label">Aperçu interactif</span>
+            <div class="ruban-demo">
+              <div class="ruban-demo-btn rd-contact"><div class="rd-arrow"></div>CONTACT</div>
+              <div class="ruban-demo-btn rd-devis"><div class="rd-arrow"></div>DEVIS GRATUIT 24H</div>
+              <div class="ruban-demo-btn rd-jobs"><div class="rd-arrow"></div>REJOIGNEZ-NOUS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="code-block">
+        <div class="code-header">
+          <div class="code-dot" style="background:#ff5f57"></div>
+          <div class="code-dot" style="background:#febc2e"></div>
+          <div class="code-dot" style="background:#28c840"></div>
+          <span class="code-title">ruban-flottant.js</span>
+        </div>
+        <div class="code-body"><code><span class="cm">// Scroll listener — mode compact</span>
+<span class="kw">(function</span>() {
+  <span class="kw">var</span> <span class="prop">ruban</span> = document
+    .getElementById(<span class="str">'ruban-flottant-netco'</span>);
+  <span class="kw">if</span> (ruban) {
+    window.addEventListener(
+      <span class="str">'scroll'</span>, <span class="kw">function</span>() {
+      <span class="kw">if</span> (window.pageYOffset > <span class="val">40</span>) {
+        ruban.classList.add(<span class="str">'compact'</span>);
+      } <span class="kw">else</span> {
+        ruban.classList.remove(<span class="str">'compact'</span>);
+      }
+    });
+  }
+<span class="kw">}</span>)();
+
+<span class="cm">/* CSS — clip-path polygone */</span>
+<span class="prop">.ruban-btn</span> {
+  <span class="prop">clip-path</span>: <span class="val">polygon(
+    15px 0%, 100% 0%,
+    100% 100%, 15px 100%, 0% 50%
+  )</span>;
+  <span class="prop">width</span>: <span class="val">230px</span>;
+  <span class="prop">transition</span>: <span class="val">width 0.3s ease</span>;
+}
+<span class="prop">.compact .ruban-btn</span> {
+  <span class="prop">width</span>: <span class="val">45px</span>;
+}</code></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMULAIRE -->
+  <div class="real-panel" id="panel-formulaire">
+    <div class="code-showcase">
+      <div>
+        <div class="real-desc">
+          <h3>Formulaire de devis personnalisé</h3>
+          <p>Reskin complet du formulaire Odoo Website Form : fond vert arrondi, champs en forme de pilule, cases à cocher dans un encadré translucide, bouton blanc avec texte vert. Zéro modification du backend, 100% CSS injecté.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">CSS avancé</span>
+            <span class="tech-tag">Odoo s_website_form</span>
+            <span class="tech-tag">border-radius pilule</span>
+            <span class="tech-tag">Anti-spam CSS</span>
+          </div>
+        </div>
+        <div style="margin-top:1.5rem">
+          <div class="form-preview">
+            <div class="fp-label">📋 Formulaire de devis</div>
+            <input class="fp-input" placeholder="Votre nom" readonly>
+            <input class="fp-input" placeholder="Votre email" readonly>
+            <input class="fp-input" placeholder="Votre téléphone" readonly>
+            <button class="fp-btn">Envoyer ma demande</button>
+          </div>
+        </div>
+      </div>
+      <div class="code-block">
+        <div class="code-header">
+          <div class="code-dot" style="background:#ff5f57"></div>
+          <div class="code-dot" style="background:#febc2e"></div>
+          <div class="code-dot" style="background:#28c840"></div>
+          <span class="code-title">formulaire-devis.css</span>
+        </div>
+        <div class="code-body"><code><span class="cm">/* Fond vert du formulaire */</span>
+<span class="prop">section.s_website_form</span> {
+  <span class="prop">background-color</span>: <span class="val">#8cb89f</span> !important;
+  <span class="prop">padding</span>: <span class="val">40px</span> !important;
+  <span class="prop">border-radius</span>: <span class="val">15px</span> !important;
+}
+
+<span class="cm">/* Champs pilule */</span>
+<span class="prop">.s_website_form input.form-control</span> {
+  <span class="prop">background-color</span>: <span class="val">#ffffff</span> !important;
+  <span class="prop">border-radius</span>: <span class="val">35px</span> !important;
+  <span class="prop">color</span>: <span class="val">#1b3b65</span> !important;
+  <span class="prop">font-weight</span>: <span class="val">bold</span> !important;
+}
+
+<span class="cm">/* Bouton blanc + texte vert */</span>
+<span class="prop">.s_website_form .btn-primary</span> {
+  <span class="prop">background-color</span>: <span class="val">#ffffff</span> !important;
+  <span class="prop">color</span>: <span class="val">#8cb89f</span> !important;
+  <span class="prop">border-radius</span>: <span class="val">35px</span> !important;
+  <span class="prop">font-weight</span>: <span class="val">900</span> !important;
+}
+
+<span class="cm">/* Anti-spam : masquer champ leurre */</span>
+<span class="prop">input[placeholder="CACHEMOI"]</span> {
+  <span class="prop">display</span>: <span class="val">none</span> !important;
+}</code></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="real-panel" id="panel-contact">
+    <div class="code-showcase">
+      <div>
+        <div class="real-desc">
+          <h3>Carte de contact pro</h3>
+          <p>Composant HTML/CSS autonome injecté dans Odoo : carte blanche centrée avec icône en cercle vert, informations de contact cliquables (email + téléphone), fond gris clair et ombre douce. Design "one-pager" façon landing page.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">HTML sémantique</span>
+            <span class="tech-tag">Font Awesome</span>
+            <span class="tech-tag">CSS Flexbox</span>
+            <span class="tech-tag">Odoo injection</span>
+          </div>
+        </div>
+        <div style="margin-top:1.5rem; background:#f9f9f9; border-radius:14px; padding:1.5rem; display:flex; justify-content:center;">
+          <div style="background:white;max-width:360px;width:100%;padding:2rem;border-radius:12px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.07);">
+            <div style="background:#4a5d52;color:white;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 1rem;">💬</div>
+            <p style="font-weight:700;color:#333;font-size:1rem;margin-bottom:0.5rem">Parlons de votre projet</p>
+            <p style="font-size:0.8rem;color:#777;margin-bottom:1.25rem">Notre équipe répond sous 24h ouvrées</p>
+            <div style="background:#f4f4f4;padding:12px;border-radius:10px;margin-bottom:8px;text-align:left;display:flex;align-items:center;gap:10px">
+              <span>✉️</span>
+              <div>
+                <div style="font-size:9px;font-weight:700;color:#aaa;letter-spacing:1px">E-MAIL</div>
+                <div style="font-size:0.8rem;font-weight:600;color:#333">gestion.netcoservices@gmail.com</div>
+              </div>
+            </div>
+            <div style="background:#f4f4f4;padding:12px;border-radius:10px;text-align:left;display:flex;align-items:center;gap:10px">
+              <span>📞</span>
+              <div>
+                <div style="font-size:9px;font-weight:700;color:#aaa;letter-spacing:1px">TÉLÉPHONE</div>
+                <div style="font-size:0.8rem;font-weight:600;color:#333">(+33) 6 65 79 81 34</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="code-block">
+        <div class="code-header">
+          <div class="code-dot" style="background:#ff5f57"></div>
+          <div class="code-dot" style="background:#febc2e"></div>
+          <div class="code-dot" style="background:#28c840"></div>
+          <span class="code-title">carte-contact.html</span>
+        </div>
+        <div class="code-body"><code><span class="kw">&lt;div</span> <span class="prop">class</span>=<span class="str">"netco-container"</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;div</span> <span class="prop">class</span>=<span class="str">"netco-card"</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;div</span> <span class="prop">class</span>=<span class="str">"icon-circle"</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;i</span> <span class="prop">class</span>=<span class="str">"fa fa-comment"</span><span class="kw">&gt;&lt;/i&gt;</span>
+    <span class="kw">&lt;/div&gt;</span>
+    <span class="kw">&lt;h2&gt;</span>Parlons de votre projet<span class="kw">&lt;/h2&gt;</span>
+    <span class="kw">&lt;div</span> <span class="prop">class</span>=<span class="str">"contact-box"</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;i</span> <span class="prop">class</span>=<span class="str">"fa fa-envelope-o"</span><span class="kw">&gt;&lt;/i&gt;</span>
+      <span class="kw">&lt;div</span> <span class="prop">class</span>=<span class="str">"contact-info"</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;span</span> <span class="prop">class</span>=<span class="str">"label"</span><span class="kw">&gt;</span>E-MAIL<span class="kw">&lt;/span&gt;</span>
+        <span class="kw">&lt;a</span> <span class="prop">href</span>=<span class="str">"mailto:..."</span><span class="kw">&gt;</span>
+          gestion.netcoservices@...
+        <span class="kw">&lt;/a&gt;</span>
+      <span class="kw">&lt;/div&gt;</span>
+    <span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;/div&gt;</span></code></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Me retrouver</div>
+  <h2 class="section-title">Contact & liens</h2>
+  <div class="contact-grid">
+    <div class="contact-links">
+      <a class="contact-link" href="https://github.com/ndiayendeyembasse32-sys" target="_blank">
+        <div class="contact-link-icon">🐙</div>
+        <div>
+          <div class="contact-link-label">GitHub</div>
+          <div class="contact-link-value">ndiayendeyembasse32-sys</div>
+        </div>
+      </a>
+      <a class="contact-link" href="https://github.com/ndiayendeyembasse32-sys/netco-odoo-project" target="_blank">
+        <div class="contact-link-icon">📂</div>
+        <div>
+          <div class="contact-link-label">Projet Odoo</div>
+          <div class="contact-link-value">netco-odoo-project</div>
+        </div>
+      </a>
+      <div class="contact-link" style="cursor:default">
+        <div class="contact-link-icon">🎓</div>
+        <div>
+          <div class="contact-link-label">École</div>
+          <div class="contact-link-value">EPSI Paris</div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-right">
+      <p>Disponible pour échanger sur mes réalisations, mon parcours, ou pour toute collaboration en développement web et intégration ERP Odoo.</p>
+      <a href="https://github.com/ndiayendeyembasse32-sys/netco-odoo-project" target="_blank" class="btn-primary" style="display:inline-block">Voir le code source →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Ndeye Mbasse Ndiaye — Portfolio de stage EPSI Paris · NET-CO SERVICES</p>
+</footer>
+
+<script>
+function showTab(name) {
+  document.querySelectorAll('.real-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + name).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
 </body>
 </html>
