@@ -1,11 +1,11 @@
-# 🌟 Portfolio Technique — Stage Fin d'Année (EPSI Paris)
+ # 🌟 Portfolio Technique — Stage Fin d'Année (EPSI Paris)
 
 <p align="center">
-  <img src="2026-06-27 - NDIAYE -Ndeye Mbasse - 2026-06-27T15_20_16.726Z - Photo_Pro_2.jpg" width="150" style="border-radius: 50%; border: 3px solid #8cb89f;"/>
+  <img src="2026-06-27 - NDIAYE -Ndeye Mbasse - 2026-06-27T15_20_16.726Z - Photo_Pro_2.jpg" alt="Ndeye Mbasse Ndiaye" width="150" style="border-radius: 50%; border: 3px solid #8cb89f;"/>
 </p>
 
 ## 🧑‍💻 À propos de moi
-Je m'appelle **Ndeye Mbasse Ndiaye**, étudiante en **Bachelor 2** à l'**EPSI Paris**. Passionnée par l'architecture des systèmes, les réseaux et le développement applicatif, j'ai réalisé mon stage de fin d'année de première année en tant que **Développeuse Web / Intégratrice ERP**.
+Je m'appelle **Ndeye Mbasse Ndiaye**, étudiante à l'**EPSI Paris**. Passionnée par l'architecture des systèmes, les réseaux et le développement applicatif, j'ai réalisé mon stage de fin d'année en tant que **Développeuse Web / Intégratrice ERP**.
 
 ---
 
@@ -16,110 +16,92 @@ Je m'appelle **Ndeye Mbasse Ndiaye**, étudiante en **Bachelor 2** à l'**EPSI P
 
 ---
 
-## 📊 Bilan & Grille d'Évaluation de l'Entreprise
-
-À l'issue de mes 8 semaines de stage, ma tutrice **Liliane Lahlouh** a validé mon travail avec la mention globale **« Très satisfaisant »**[cite: 5]. Le niveau de maîtrise le plus élevé (**Niveau 3 — Pratique approfondie**) m'a été attribué sur l'intégralité du référentiel des compétences de l'école[cite: 5].
-
-### 📋 Synthèse des Compétences Validées (Référentiel EPSI)
-
-| Activité du Référentiel | Compétence évaluée | Niveau Attent |
-| :--- | :--- | :---: |
-| **A1 — Développement Web & Objet** | Concevoir et développer une solution WEB & Objet | **Niveau 3** (Pratique approfondie)[cite: 5] |
-| **A2 — Infrastructure Réseau & Système** | Installer une infrastructure système & réseau sécurisée pour un environnement Web | **Niveau 3** (Pratique approfondie)[cite: 5] |
-| **A3 — Conception & Logique BDD** | Concevoir, structurer et exploiter une base de données relationnelle | **Niveau 3** (Pratique approfondie)[cite: 5] |
-| **A4 — Nouvelles Technologies** | Développer un projet applicatif en utilisant les nouvelles technologies | **Niveau 3** (Pratique approfondie)[cite: 5] |
-| **A5 — Veille, Documentation & Comm** | Analyser, produire de la documentation technique et communiquer (FR/EN) | **Niveau 3** (Pratique approfondie)[cite: 5] |
-
-> 💬 **Commentaire de l'entreprise :** *« Mbasse est une stagiaire sérieuse, autonome et pleinement impliquée, qui s'est intégrée très rapidement au sein de notre structure. [...] La qualité du résultat et sa capacité à avancer sans supervision constante méritent d'être soulignées. »* — Liliane Lahlouh, NET-CO SERVICES[cite: 5].
-
----
-
 ## 🛠️ Réalisations Techniques & Codes Sources Personnalisés
 
 Dans cette section, vous trouverez l'ensemble des blocs de code (HTML, CSS et JavaScript) que j'ai conçus et injectés au sein de l'éditeur avancé d'Odoo afin de modifier en profondeur l'expérience utilisateur et l'esthétique graphique de la plateforme.
 
 ### 1. Ruban Flottant Latéral Dynamique (Menu d'Action Rapide)
-* **Description technique :** Ce module crée un menu flottant sur le bord droit de l'écran. Il intègre des formes personnalisées en polygones grâce à la propriété CSS `clip-path`. Un script JavaScript écoute le défilement de la page (scroll) : dès que l'utilisateur descend de plus de 40px, le menu bascule automatiquement en mode **compact** pour libérer de l'espace visuel, puis se redéploie dynamiquement au survol de la souris.
+* **Description technique :** Ce module crée un menu flottant sur le bord droit de l'écran (`image_57bd24.png`). Il intègre des formes personnalisées en polygones grâce à la propriété CSS `clip-path`. Un script JavaScript écoute le défilement de la page (scroll) : dès que l'utilisateur descend de plus de 40px, le menu bascule automatiquement en mode **compact** pour libérer de l'espace visuel, puis se redéploie dynamiquement au survol de la souris.
 
 #### 🌐 Structure HTML
 ```html
 <div id="ruban-flottant-netco">
-  <a href="/contactus" class="ruban-btn ruban-theme-clair">
-    <span class="fleche"></span>
-    <span class="texte-btn">CONTACT</span>
-  </a>
-  <a href="/devis" class="ruban-btn ruban-vert">
-    <span class="fleche"></span>
-    <span class="texte-btn">DEVIS GRATUIT SOUS 24H</span>
-  </a>
-  <a href="/jobs" class="ruban-btn ruban-bleu">
-    <span class="fleche"></span>
-    <span class="texte-btn">REJOIGNEZ-NOUS</span>
-  </a>
+<a href="/contactus" class="ruban-btn ruban-theme-clair">
+<span class="fleche"></span>
+<span class="texte-btn">CONTACT</span>
+</a>
+<a href="/devis" class="ruban-btn ruban-vert">
+<span class="fleche"></span>
+<span class="texte-btn">DEVIS GRATUIT SOUS 24H</span>
+</a>
+<a href="/jobs" class="ruban-btn ruban-bleu">
+<span class="fleche"></span>
+<span class="texte-btn">REJOIGNEZ-NOUS</span>
+</a>
 </div>
 /* Positionnement global */
 #ruban-flottant-netco {
-  position: fixed !important;
-  top: 50% !important;
-  right: 0 !important;
-  transform: translateY(-50%) !important;
-  z-index: 99999 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 10px !important;
+position: fixed !important;
+top: 50% !important;
+right: 0 !important;
+transform: translateY(-50%) !important;
+z-index: 99999 !important;
+display: flex !important;
+flex-direction: column !important;
+gap: 10px !important;
 }
 
 /* Style de base des boutons */
 #ruban-flottant-netco .ruban-btn {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
-  padding: 12px 20px 12px 15px !important;
-  height: 45px !important;
-  font-family: 'Inter', sans-serif !important;
-  font-weight: bold !important;
-  font-size: 13px !important;
-  white-space: nowrap !important;
-  cursor: pointer !important;
-  text-decoration: none !important;
-  width: 230px !important;
-  clip-path: polygon(15px 0%, 100% 0%, 100% 100%, 15px 100%, 0% 50%) !important;
-  transition: width 0.3s ease, padding 0.3s ease !important;
+display: flex !important;
+align-items: center !important;
+justify-content: flex-start !important;
+padding: 12px 20px 12px 15px !important;
+height: 45px !important;
+font-family: 'Inter', sans-serif !important;
+font-weight: bold !important;
+font-size: 13px !important;
+white-space: nowrap !important;
+cursor: pointer !important;
+text-decoration: none !important;
+width: 230px !important;
+clip-path: polygon(15px 0%, 100% 0%, 100% 100%, 15px 100%, 0% 50%) !important;
+transition: width 0.3s ease, padding 0.3s ease !important;
 }
 
 /* Flèches */
 #ruban-flottant-netco .fleche {
-  width: 0 !important;
-  height: 0 !important;
-  border-top: 7px solid transparent !important;
-  border-bottom: 7px solid transparent !important;
-  margin-right: 12px !important;
-  display: inline-block !important;
-  flex-shrink: 0 !important;
+width: 0 !important;
+height: 0 !important;
+border-top: 7px solid transparent !important;
+border-bottom: 7px solid transparent !important;
+margin-right: 12px !important;
+display: inline-block !important;
+flex-shrink: 0 !important;
 }
 
 /* Effet de soulignement dynamique */
 #ruban-flottant-netco .texte-btn {
-  position: relative !important;
+position: relative !important;
 }
 
 #ruban-flottant-netco .ruban-btn:hover .texte-btn::after {
-  content: '' !important;
-  position: absolute !important;
-  left: 0 !important;
-  bottom: -4px !important;
-  width: 100% !important;
-  height: 2px !important;
-  background-color: currentColor !important;
-  animation: souligner 0.3s forwards !important;
+content: '' !important;
+position: absolute !important;
+left: 0 !important;
+bottom: -4px !important;
+width: 100% !important;
+height: 2px !important;
+background-color: currentColor !important;
+animation: souligner 0.3s forwards !important;
 }
 
 @keyframes souligner {
-  from { width: 0; }
-  to { width: 100%; }
+from { width: 0; }
+to { width: 100%; }
 }
 
-/* Couleurs de la charte */
+/* Couleurs */
 #ruban-flottant-netco .ruban-theme-clair { background-color: #ffe7ce !important; color: #1b3b65 !important; }
 #ruban-flottant-netco .ruban-theme-clair .fleche { border-right: 11px solid #1b3b65 !important; }
 
@@ -135,123 +117,123 @@ Dans cette section, vous trouverez l'ensemble des blocs de code (HTML, CSS et Ja
 #ruban-flottant-netco.compact:hover .ruban-btn { width: 230px !important; }
 #ruban-flottant-netco.compact:hover .texte-btn { display: inline-block !important; }
 (function() {
-  var ruban = document.getElementById('ruban-flottant-netco');
-  if (ruban) {
-    window.addEventListener('scroll', function() {
-      if (window.pageYOffset > 40) {
-        ruban.classList.add('compact');
-      } else {
-        ruban.classList.remove('compact');
-      }
-    });
-  }
+var ruban = document.getElementById('ruban-flottant-netco');
+if (ruban) {
+window.addEventListener('scroll', function() {
+if (window.pageYOffset > 40) {
+ruban.classList.add('compact');
+} else {
+ruban.classList.remove('compact');
+}
+});
+}
 })();
 /* 1. LE FOND VERT DU FORMULAIRE */
 section.s_website_form, .s_website_form {
-  background-color: #8cb89f !important;
-  padding: 40px !important;
-  border-radius: 15px !important;
+background-color: #8cb89f !important; /* Ton vert */
+padding: 40px !important;
+border-radius: 15px !important;
 }
 
 /* 2. LES TEXTES ET TITRES (BLANCS ET CENTRÉS) */
 .s_website_form .col-form-label,
 .s_website_form label {
-  color: #ffffff !important;
-  font-weight: bold !important;
-  font-family: Arial, sans-serif !important;
+color: #ffffff !important;
+font-weight: bold !important;
+font-family: Arial, sans-serif !important;
 }
 
 /* Forcer le centrage des titres principaux */
 .s_website_form .s_website_form_field:not(:has(input[type="checkbox"])):not(:has(input[type="radio"])) .col-form-label {
-  text-align: center !important;
-  display: block !important;
-  width: 100% !important;
-  font-size: 16px !important;
+text-align: center !important;
+display: block !important;
+width: 100% !important;
+font-size: 16px !important;
 }
 
 /* 3. L'ENCADREMENT TRANSPARENT DES PRESTATIONS */
 .s_website_form .s_website_form_field:has(input[type="checkbox"]) {
-  border: 2px dashed rgba(255, 255, 255, 0.4) !important;
-  border-radius: 15px !important;
-  padding: 20px !important;
-  background-color: rgba(255, 255, 255, 0.1) !important;
-  margin-top: 15px !important;
-  margin-bottom: 20px !important;
+border: 2px dashed rgba(255, 255, 255, 0.4) !important;
+border-radius: 15px !important;
+padding: 20px !important;
+background-color: rgba(255, 255, 255, 0.1) !important;
+margin-top: 15px !important;
+margin-bottom: 20px !important;
 }
 
 /* Aligner les petites cases à cocher et ronds à gauche */
 .s_website_form .form-check-label {
-  text-align: left !important;
-  display: inline-block !important;
+text-align: left !important;
+display: inline-block !important;
 }
 
 /* 4. LES CASES DE SAISIE (BLANCHES ET ARRONDIES) */
 .s_website_form input.form-control,
 .s_website_form textarea.form-control {
-  background-color: #ffffff !important;
-  border: none !important;
-  border-radius: 35px !important; /* Forme pilule */
-  padding: 12px 20px !important;
-  color: #1b3b65 !important; /* Écriture bleu marine */
-  font-weight: bold !important;
+background-color: #ffffff !important;
+border: none !important;
+border-radius: 35px !important; /* Forme pilule */
+padding: 12px 20px !important;
+color: #1b3b65 !important; /* Écriture bleu marine */
+font-weight: bold !important;
 }
 
 /* Moins d'arrondi pour la grande zone de texte */
 .s_website_form textarea.form-control {
-  border-radius: 20px !important;
+border-radius: 20px !important;
 }
 
 /* 5. LE BOUTON DE SOUMISSION (BLANC ET TEXTE VERT) */
 .s_website_form .btn-primary,
 .s_website_form button,
 .s_website_form .s_website_form_send {
-  background-color: #ffffff !important;
-  color: #8cb89f !important;
-  border: none !important;
-  border-radius: 35px !important;
-  font-weight: 900 !important;
-  padding: 15px 40px !important;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
-  text-transform: uppercase !important;
+background-color: #ffffff !important;
+color: #8cb89f !important;
+border: none !important;
+border-radius: 35px !important;
+font-weight: 900 !important;
+padding: 15px 40px !important;
+box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+text-transform: uppercase !important;
 }
 
 /* 6. LES DEUX ASTUCES DE CACHAGE / SÉCURITÉ ANTI-SPAM */
 /* Masquer la case blanche avec le mot CACHEMOI */
 input[placeholder="CACHEMOI"] {
-  display: none !important;
+display: none !important;
 }
 
 /* Masquer le petit mot "Texte" orange au-dessus du bouton */
 .s_website_form .s_website_form_submit label {
-  display: none !important;
+display: none !important;
 }
 <div class="netco-container">
-  <div class="netco-card">
-    <div class="icon-circle">
-      <i class="fa fa-comment"></i>
-    </div>
+<div class="netco-card">
+<div class="icon-circle">
+<i class="fa fa-comment"></i>
+</div>
 
-    <h2 class="title">Parlons de votre projet :<br>obtenez un devis gratuit</h2>
-    <p class="subtitle">Notre équipe commerciale vous répond rapidement et vous accompagne pour établir un devis adapté à vos besoins.</p>
+<h2 class="title">Parlons de votre projet :<br>obtenez un devis gratuit</h2>
+<p class="subtitle">Notre équipe commerciale vous répond rapidement et vous accompagne pour établir un devis adapté à vos besoins.</p>
 
-    <div class="contact-box">
-      <i class="fa fa-envelope-o"></i>
-      <div class="contact-info">
-        <span class="label">E-MAIL</span>
-        <a href="mailto:gestion.netcoservices@gmail.com">gestion.netcoservices@gmail.com</a>
-      </div>
-    </div>
+<div class="contact-box">
+<i class="fa fa-envelope-o"></i>
+<div class="contact-info">
+<span class="label">E-MAIL</span>
+<a href="mailto:gestion.netcoservices@gmail.com">gestion.netcoservices@gmail.com</a>
+</div>
+</div>
 
-    <div class="contact-box">
-      <i class="fa fa-phone"></i>
-      <div class="contact-info">
-        <span class="label">TÉLÉPHONE</span>
-        <a href="tel:+33665798134">(+33) 6 65 79 81 34</a> - <a href="tel:+33760493025">(+33) 7 60 49 30 25</a>
-      </div>
-    </div>
+<div class="contact-box">
+<i class="fa fa-phone"></i>
+<div class="contact-info">
+<span class="label">TÉLÉPHONE</span>
+<a href="tel:+33665798134">(+33) 6 65 79 81 34</a> - <a href="tel:+33760493025">(+33) 7 60 49 30 25</a>
+</div>
+</div>
 
-    <p class="footer-note">Réponse sous 24h ouvrées • Du lundi au vendredi</p>
-  </div>
+<p class="footer-note">Réponse sous 24h ouvrées • Du lundi au vendredi</p>
+</div>
 </div>
 .netco-container { background: #f9f9f9; padding: 40px; display: flex; justify-content: center; }
 .netco-card { background: white; max-width: 500px; padding: 40px; border-radius: 15px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
@@ -265,4 +247,3 @@ input[placeholder="CACHEMOI"] {
 .contact-box i { font-size: 20px; color: #4a5d52; margin-right: 15px; }
 .contact-info .label { display: block; font-size: 10px; font-weight: bold; color: #888; letter-spacing: 1px; }
 .contact-info a { color: #333; text-decoration: none; font-weight: bold; }
-.footer-note { font-size: 12px; color: #999; margin-top: 20px; }
