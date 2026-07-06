@@ -1,7 +1,7 @@
 # 🌟 Portfolio Technique — Stage Fin d'Année (EPSI Paris)
 
 <p align="center">
-  <img src="ma-photo.jpeg" alt="Ndeye Mbasse Ndiaye" width="150" style="border-radius: 50%; border: 3px solid #8cb89f;"/>
+  <img src="2026-06-27 - NDIAYE -Ndeye Mbasse - 2026-06-27T15_20_16.726Z - Photo_Pro_2.jpg" alt="Ndeye Mbasse Ndiaye" width="150" style="border-radius: 50%; border: 3px solid #8cb89f;"/>
 </p>
 
 ## 🧑‍💻 À propos de moi
